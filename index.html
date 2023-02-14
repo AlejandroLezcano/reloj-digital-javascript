@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Alejandro Lezcano - Reloj Digital</title>
+      <link rel="stylesheet" href="styles.css">
+      <style>
+        body {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+    background: black;
+}
+
+#watch {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 200px;
+    border: 2px solid cyan;
+    color: cyan;
+    border-radius: 50%;
+    font-family: monospace;
+    font-size: 1.7rem;
+}
+      </style>
+   </head>
+   <body>
+      <div id="watch"></div>
+      <script src="script.js"></script>
+      <script>
+        function currentTime() {
+    let date = new Date();
+    let hh = date.getHours();
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+ 
+    hh = (hh < 10) ? "0" + hh : hh;
+    mm = (mm < 10) ? "0" + mm : mm;
+    ss = (ss < 10) ? "0" + ss : ss;
+ 
+    let time = hh + ":" + mm + ":" + ss;
+    let watch = document.querySelector('#watch');
+    watch.innerHTML = time;
+ }
+ 
+ setInterval(currentTime, 1000);
+      </script>
+   </body>
+</html>
